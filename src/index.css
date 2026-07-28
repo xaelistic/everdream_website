@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pearl: #0d0d1a;
+  --color-deep: #1a1a2e;
+  --color-cream: #1f1f35;
+  --color-elevated: #2a2a42;
+  --color-aqua: #5ec4a8;
+  --color-aqua-light: #a8eddc;
+  --color-lav: #9b8fd4;
+  --color-lav-light: #c8b8ff;
+  --color-gold: #ffd8a8;
+  --color-rose: #f0a0b0;
+  --color-ink: #e8e6f0;
+  --color-body: #b0acc0;
+  --color-muted: #706a80;
+  --color-whisper: rgba(232, 230, 240, 0.12);
+  --font-ui: "Inter", system-ui, sans-serif;
+  --font-dream: "Playfair Display", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-ui);
+  background: var(--color-pearl);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(94, 196, 168, 0.35);
+  color: #fff;
+}
+
+.font-dream {
+  font-family: var(--font-dream);
+}
+
+.glass {
+  background: rgba(26, 26, 46, 0.72);
+  border: 1px solid rgba(200, 184, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #a8eddc 0%, #c8b8ff 50%, #ffd8a8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #5ec4a8, #9b8fd4);
+  color: #0d0d1a;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  box-shadow: 0 0 24px rgba(94, 196, 168, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 32px rgba(94, 196, 168, 0.35);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid rgba(232, 230, 240, 0.18);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(232, 230, 240, 0.35);
+}
+
+.section-label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-aqua);
+  font-weight: 500;
+}
+
+.page-wrap {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.prose-dream h2 {
+  font-family: var(--font-dream);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin: 2rem 0 0.75rem;
+}
+
+.prose-dream p {
+  color: var(--color-body);
+  line-height: 1.8;
+  margin: 0 0 1rem;
+}
+
+.prose-dream ul {
+  color: var(--color-body);
+  line-height: 1.8;
+  padding-left: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.prose-dream li {
+  margin-bottom: 0.35rem;
+}
