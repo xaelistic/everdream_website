@@ -14,13 +14,13 @@ export function HowItWorksPage() {
         context, never a requirement.
       </p>
 
-      <ol className="list-none p-0 m-0 space-y-4 mb-16">
+      <ol className="list-none p-0 m-0 space-y-3.5 mb-16">
         {HOW_IT_WORKS.map((s) => (
           <li
             key={s.step}
-            className="glass rounded-2xl p-6 md:p-8 flex gap-5 items-start"
+            className="glass glass-lift rounded-2xl p-6 md:p-8 flex gap-5 items-start"
           >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-aqua/30 to-lav/30 border border-white/10 font-dream text-lg text-ink">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[rgba(94,196,168,0.1)] border border-[rgba(168,237,220,0.2)] font-dream text-lg text-aqua-light">
               {s.step}
             </span>
             <div>

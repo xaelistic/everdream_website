@@ -34,22 +34,22 @@ const COLUMNS = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-white/[0.06] pt-16 pb-10">
+    <footer className="mt-auto border-t border-[rgba(168,237,220,0.08)] pt-16 pb-10">
       <div className="page-wrap">
-        <div className="grid gap-10 md:grid-cols-4 mb-12">
+        <div className="grid gap-12 md:grid-cols-4 mb-14">
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-aqua to-lav">
-                <Moon className="h-3 w-3 text-pearl" />
+            <div className="flex items-center gap-2.5 mb-4">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(168,237,220,0.14)] bg-[rgba(26,26,46,0.8)]">
+                <Moon className="h-3.5 w-3.5 text-lav" strokeWidth={1.75} />
               </span>
-              <span className="font-dream text-base text-ink/90">everdream</span>
+              <span className="wordmark !text-xs">Everdream</span>
             </div>
-            <p className="text-sm text-muted leading-relaxed max-w-xs">{TAGLINE}</p>
+            <p className="text-sm text-muted leading-relaxed max-w-xs m-0">{TAGLINE}</p>
             <a
               href={DISCORD_URL}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-block text-sm text-aqua hover:text-aqua-light transition-colors"
+              className="mt-5 inline-block text-sm text-aqua-light hover:text-aqua transition-colors"
             >
               Join Discord →
             </a>
@@ -74,9 +74,14 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/[0.05] pt-8">
-          <p className="text-xs text-muted/80 m-0">© {new Date().getFullYear()} EverDream. All rights reserved.</p>
-          <p className="font-dream italic text-sm text-muted/60 m-0">Your subconscious, your sovereignty.</p>
+        <div className="hairline mb-8" />
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-muted/90 m-0">
+            © {new Date().getFullYear()} EverDream. All rights reserved.
+          </p>
+          <p className="font-dream italic text-sm text-dream m-0">
+            Your subconscious, your sovereignty.
+          </p>
         </div>
       </div>
     </footer>

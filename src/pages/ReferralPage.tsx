@@ -14,11 +14,11 @@ export function ReferralPage() {
 
   return (
     <div className="page-wrap py-16 md:py-24 max-w-2xl text-center">
-      <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 mb-8">
+      <div className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/10 px-4 py-1.5 mb-8">
         <Gift className="h-3.5 w-3.5 text-gold" />
-        <span className="text-xs uppercase tracking-[0.14em] text-gold">You were invited</span>
+        <span className="text-[0.625rem] uppercase tracking-[0.2em] text-gold">You were invited</span>
       </div>
-      <h1 className="font-dream text-4xl md:text-5xl m-0 mb-4 font-medium text-ink">
+      <h1 className="font-dream text-4xl md:text-5xl m-0 mb-4 font-medium text-ink tracking-tight">
         Welcome with code{' '}
         <span className="gradient-text">{cleaned || '—'}</span>
       </h1>

@@ -18,12 +18,15 @@ export function Layout() {
   }, [params]);
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <SiteNav />
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <SiteFooter />
-    </div>
+    <>
+      <div className="atmosphere" aria-hidden />
+      <div className="site-root">
+        <SiteNav />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <SiteFooter />
+      </div>
+    </>
   );
 }

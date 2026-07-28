@@ -15,14 +15,14 @@ export function PricingPage() {
         analytics. Referrals earn tokens and free months for both of you.
       </p>
 
-      <div className="grid md:grid-cols-3 gap-5 mb-20">
+      <div className="grid md:grid-cols-3 gap-4 mb-20">
         {PRICING.map((tier) => (
           <div
             key={tier.id}
-            className={`rounded-3xl p-6 md:p-8 flex flex-col border ${
+            className={`rounded-[1.5rem] p-6 md:p-8 flex flex-col border ${
               tier.featured
-                ? 'border-aqua/40 bg-gradient-to-b from-aqua/10 to-deep shadow-[0_0_40px_rgba(94,196,168,0.12)]'
-                : 'border-white/[0.08] bg-deep'
+                ? 'border-aqua/35 bg-gradient-to-b from-aqua/10 to-[rgba(26,26,46,0.9)] shadow-[0_0_48px_rgba(94,196,168,0.1)]'
+                : 'border-[rgba(168,237,220,0.1)] bg-[rgba(26,26,46,0.7)] backdrop-blur-md'
             }`}
           >
             {tier.featured && (

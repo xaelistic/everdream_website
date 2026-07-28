@@ -7,7 +7,7 @@ const LINKS = [
   { to: '/features', label: 'Features' },
   { to: '/how-it-works', label: 'How it works' },
   { to: '/gallery', label: 'Gallery' },
-  { to: '/leaderboards', label: 'Leaderboards' },
+  { to: '/leaderboards', label: 'Boards' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/learn', label: 'Learn' },
   { to: '/roadmap', label: 'Roadmap' },
@@ -17,21 +17,24 @@ export function SiteNav() {
   const [open, setOpen] = useState(false);
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `text-sm transition-colors ${
-      isActive ? 'text-ink' : 'text-body hover:text-ink'
+    `text-[13px] transition-colors duration-200 ${
+      isActive ? 'text-ink' : 'text-muted hover:text-body'
     }`;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-pearl/90 backdrop-blur-md">
-      <div className="page-wrap flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2.5 no-underline">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-aqua to-lav">
-            <Moon className="h-3.5 w-3.5 text-pearl" strokeWidth={2.5} />
+    <header className="sticky top-0 z-50 border-b border-[rgba(168,237,220,0.1)] bg-[rgba(13,13,26,0.88)] backdrop-blur-xl">
+      <div className="page-wrap flex h-[4.25rem] items-center justify-between gap-4">
+        <Link to="/" className="flex items-center gap-2.5 no-underline min-w-0 group">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[rgba(168,237,220,0.14)] bg-[rgba(26,26,46,0.8)] shadow-[0_1px_6px_rgba(0,0,0,0.25)] group-hover:border-aqua/30 transition-colors">
+            <Moon className="h-4 w-4 text-lav" strokeWidth={1.75} />
           </span>
-          <span className="font-dream text-lg tracking-wide text-ink">everdream</span>
+          <span className="min-w-0">
+            <span className="wordmark block truncate">Everdream</span>
+            <span className="wordmark-sub hidden sm:block">Dreams · Sleep · Calm reflection</span>
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-5 xl:flex">
           {LINKS.map((l) => (
             <NavLink key={l.to} to={l.to} className={linkClass}>
               {l.label}
@@ -39,13 +42,16 @@ export function SiteNav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <a href={appUrlWithRef()} className="btn-primary hidden sm:inline-flex !py-2 !px-4 !text-sm">
+        <div className="flex items-center gap-2.5">
+          <a
+            href={appUrlWithRef()}
+            className="btn-primary hidden sm:inline-flex !py-2.5 !px-4 !text-[13px] !rounded-2xl"
+          >
             Get the app
           </a>
           <button
             type="button"
-            className="rounded-lg border border-white/10 p-2 text-body lg:hidden"
+            className="rounded-xl border border-[rgba(168,237,220,0.12)] bg-[rgba(26,26,46,0.6)] p-2.5 text-body xl:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? 'Close menu' : 'Open menu'}
           >
@@ -55,15 +61,15 @@ export function SiteNav() {
       </div>
 
       {open && (
-        <div className="border-t border-white/[0.06] bg-deep/95 lg:hidden">
-          <nav className="page-wrap flex flex-col gap-1 py-4">
+        <div className="border-t border-[rgba(168,237,220,0.08)] bg-[rgba(13,13,26,0.97)] xl:hidden">
+          <nav className="page-wrap flex flex-col gap-0.5 py-4">
             {LINKS.map((l) => (
               <NavLink
                 key={l.to}
                 to={l.to}
                 className={({ isActive }) =>
-                  `rounded-lg px-3 py-2.5 text-sm ${
-                    isActive ? 'bg-white/5 text-ink' : 'text-body'
+                  `rounded-xl px-3 py-3 text-sm ${
+                    isActive ? 'bg-white/[0.04] text-ink' : 'text-body'
                   }`
                 }
                 onClick={() => setOpen(false)}
@@ -73,7 +79,7 @@ export function SiteNav() {
             ))}
             <a
               href={appUrlWithRef()}
-              className="btn-primary mt-2 !justify-center"
+              className="btn-primary mt-3 !justify-center !rounded-2xl"
               onClick={() => setOpen(false)}
             >
               Get the app

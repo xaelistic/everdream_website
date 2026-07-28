@@ -423,8 +423,8 @@ export const LEARN_ARTICLES: LearnArticle[] = [
 ];
 
 export const RARITY_COLORS: Record<string, string> = {
-  common: 'text-body border-white/10 bg-white/5',
-  uncommon: 'text-aqua border-aqua/30 bg-aqua/10',
-  rare: 'text-lav-light border-lav/40 bg-lav/15',
-  legendary: 'text-gold border-gold/40 bg-gold/10',
+  common: 'text-body border-white/10 bg-white/[0.04]',
+  uncommon: 'text-aqua-light border-aqua/30 bg-aqua/10',
+  rare: 'text-lav-light border-lav/35 bg-lav/12',
+  legendary: 'text-gold border-gold/35 bg-gold/10',
 };

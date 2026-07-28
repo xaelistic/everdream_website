@@ -1,10 +1,16 @@
 @import "tailwindcss";
 
+/*
+  EverDream marketing — Pearl Dark (matches ed.app.new skin-pearl-dark)
+  Signature: iridescent void · aqua glass · Playfair dream type · wide EVERDREAM mark
+*/
+
 @theme {
   --color-pearl: #0d0d1a;
   --color-deep: #1a1a2e;
-  --color-cream: #1f1f35;
-  --color-elevated: #2a2a42;
+  --color-mid: #2a2a3e;
+  --color-elevated: #35354a;
+  --color-cream: #1a1a2e;
   --color-aqua: #5ec4a8;
   --color-aqua-light: #a8eddc;
   --color-lav: #9b8fd4;
@@ -14,9 +20,11 @@
   --color-ink: #e8e6f0;
   --color-body: #b0acc0;
   --color-muted: #706a80;
+  --color-dream: #908aa0;
   --color-whisper: rgba(232, 230, 240, 0.12);
-  --font-ui: "Inter", system-ui, sans-serif;
-  --font-dream: "Playfair Display", Georgia, serif;
+  --color-line: rgba(168, 237, 220, 0.12);
+  --font-ui: "Inter", system-ui, -apple-system, sans-serif;
+  --font-dream: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -31,52 +39,134 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--font-ui);
-  background: var(--color-pearl);
+  font-weight: 400;
+  background: #0d0d1a;
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: rgba(94, 196, 168, 0.35);
+  background: rgba(94, 196, 168, 0.32);
   color: #fff;
+}
+
+/* ── Atmosphere (app main background) ── */
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 140% 80% at 10% 0%, rgba(168, 237, 220, 0.09), transparent 55%),
+    radial-gradient(ellipse 100% 60% at 92% 4%, rgba(200, 184, 255, 0.08), transparent 50%),
+    radial-gradient(ellipse 90% 50% at 50% 100%, rgba(255, 216, 168, 0.045), transparent 60%),
+    #0d0d1a;
+}
+
+.atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.site-root {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .font-dream {
   font-family: var(--font-dream);
+  font-feature-settings: "liga" 1, "kern" 1;
 }
 
+/* App shell wordmark */
+.wordmark {
+  font-family: var(--font-ui);
+  font-weight: 300;
+  font-size: 0.9375rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  line-height: 1.2;
+}
+
+.wordmark-sub {
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  text-transform: none;
+  margin-top: 0.15rem;
+}
+
+/* Glass — matches DreamCard / skin tokens */
 .glass {
-  background: rgba(26, 26, 46, 0.72);
-  border: 1px solid rgba(200, 184, 255, 0.12);
+  background: rgba(26, 26, 46, 0.75);
+  border: 1px solid rgba(168, 237, 220, 0.12);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.glass-soft {
+  background: rgba(26, 26, 46, 0.55);
+  border: 1px solid rgba(168, 237, 220, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-lift {
+  transition: transform 180ms ease-out, box-shadow 180ms ease-out, border-color 180ms ease-out;
+}
+
+.glass-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(168, 237, 220, 0.1), 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-color: rgba(168, 237, 220, 0.22);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #a8eddc 0%, #c8b8ff 50%, #ffd8a8 100%);
+  background: linear-gradient(120deg, #a8eddc 0%, #c8b8ff 48%, #ffd8a8 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
+/* App sage primary (not crypto gradient pill) */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, #5ec4a8, #9b8fd4);
+  padding: 0.875rem 1.5rem;
+  border-radius: 1rem;
+  background: #5ec4a8;
   color: #0d0d1a;
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
-  box-shadow: 0 0 24px rgba(94, 196, 168, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: background 180ms ease-out, transform 180ms ease-out, box-shadow 180ms ease-out;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(168, 237, 220, 0.15);
 }
 
 .btn-primary:hover {
+  background: #6fd4b6;
   transform: translateY(-1px);
-  box-shadow: 0 0 32px rgba(94, 196, 168, 0.35);
+  box-shadow: 0 8px 24px rgba(94, 196, 168, 0.22);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .btn-secondary {
@@ -84,34 +174,47 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  background: transparent;
+  padding: 0.875rem 1.5rem;
+  border-radius: 1rem;
+  background: rgba(26, 26, 46, 0.65);
   color: var(--color-ink);
-  border: 1px solid rgba(232, 230, 240, 0.18);
+  border: 1px solid rgba(168, 237, 220, 0.14);
   font-weight: 500;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   text-decoration: none;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 180ms ease-out, border-color 180ms ease-out;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(232, 230, 240, 0.35);
+  background: rgba(42, 42, 62, 0.85);
+  border-color: rgba(168, 237, 220, 0.28);
 }
 
+/* App label style: tracking 0.22em */
 .section-label {
-  font-size: 0.6875rem;
-  letter-spacing: 0.16em;
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-aqua);
+  color: var(--color-muted);
   font-weight: 500;
+}
+
+.section-label-accent {
+  color: #a8eddc;
 }
 
 .page-wrap {
   max-width: 72rem;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .page-wrap {
+    padding: 0 2rem;
+  }
 }
 
 .prose-dream h2 {
@@ -137,4 +240,153 @@ body {
 
 .prose-dream li {
   margin-bottom: 0.35rem;
+}
+
+/* Signature record orb */
+.orb {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(168, 237, 220, 0.55), transparent 45%),
+    radial-gradient(circle at 70% 70%, rgba(200, 184, 255, 0.4), transparent 50%),
+    linear-gradient(145deg, #2a3a48, #1a1a2e);
+  border: 1px solid rgba(168, 237, 220, 0.28);
+  box-shadow:
+    0 0 0 8px rgba(94, 196, 168, 0.06),
+    0 0 40px rgba(94, 196, 168, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  animation: orb-breathe 4.5s ease-in-out infinite;
+}
+
+.orb::after {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  border: 1px solid rgba(168, 237, 220, 0.12);
+  animation: orb-ring 4.5s ease-in-out infinite;
+}
+
+@keyframes orb-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes orb-ring {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-slow {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+/* Phone device frame */
+.device-frame {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  border-radius: 2.25rem;
+  padding: 0.55rem;
+  background: linear-gradient(160deg, #2a2a3e, #12121f 55%, #1a1a2e);
+  border: 1px solid rgba(168, 237, 220, 0.14);
+  box-shadow:
+    0 40px 80px -20px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 0 60px rgba(94, 196, 168, 0.08);
+}
+
+.device-frame-screen {
+  border-radius: 1.85rem;
+  overflow: hidden;
+  background: #0d0d1a;
+  border: 1px solid rgba(168, 237, 220, 0.08);
+  min-height: 540px;
+}
+
+.device-notch {
+  position: absolute;
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 18px;
+  border-radius: 999px;
+  background: #05050c;
+  z-index: 5;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Divider hairline like app */
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(168, 237, 220, 0.18),
+    transparent
+  );
+}
+
+/* Starfield for hero only */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.35;
+  animation: twinkle var(--d, 3s) ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+/* Focus rings */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgba(168, 237, 220, 0.55);
+  outline-offset: 3px;
+}
+
+/* Select / form polish */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23706a80' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2rem;
 }
