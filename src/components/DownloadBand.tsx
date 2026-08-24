@@ -20,7 +20,8 @@ export function DownloadBand({ compact = false }: { compact?: boolean }) {
             Start journaling tonight
           </h2>
           <p className="text-body m-0 max-w-md leading-relaxed text-[0.95rem]">
-            Same Pearl Dark calm as the app — open the PWA, join Discord, or install when stores open.
+            Same Pearl Dark calm as the app — open the PWA, unlock Plus or Pro, or buy tokens with
+            Stripe. Store apps follow once this web billing path is live.
           </p>
         </div>
         <div className="flex flex-wrap gap-3">

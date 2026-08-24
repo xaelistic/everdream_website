@@ -1,6 +1,6 @@
 /** Site + product URLs — override via VITE_* at build time */
 export const APP_URL =
-  import.meta.env.VITE_APP_URL || 'https://app.everdream.n1g3.com';
+  import.meta.env.VITE_APP_URL || 'https://everdream.n1g3.com';
 export const DISCORD_URL =
   import.meta.env.VITE_DISCORD_URL || 'https://discord.gg/everdream';
 export const SITE_NAME = 'EverDream';

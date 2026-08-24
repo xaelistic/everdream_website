@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm install
 COPY . .
-ARG VITE_APP_URL=https://app.everdream.n1g3.com
+ARG VITE_APP_URL=https://everdream.n1g3.com
 ARG VITE_DISCORD_URL=https://discord.gg/everdream
 ENV VITE_APP_URL=$VITE_APP_URL
 ENV VITE_DISCORD_URL=$VITE_DISCORD_URL

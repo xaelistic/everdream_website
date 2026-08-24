@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, PenLine, Watch, Share2, Trophy } from 'lucide-react';
-import { FEATURES, SAMPLE_GALLERY, LEADERBOARDS } from '@/data/content';
+import { CREDIT_PACKS, FEATURES, LEADERBOARDS, PRICING, SAMPLE_GALLERY } from '@/data/content';
 import { GalleryCard } from '@/components/GalleryCard';
 import { DownloadBand } from '@/components/DownloadBand';
 import { AppPhoneMock } from '@/components/AppPhoneMock';
@@ -259,6 +259,55 @@ export function HomePage() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="page-wrap pb-20 md:pb-24">
+        <div className="flex items-end justify-between mb-10 gap-4">
+          <div>
+            <p className="section-label mb-2">Pricing</p>
+            <h2 className="font-dream text-3xl md:text-4xl m-0 text-ink font-medium tracking-tight">
+              Capture free. Unlock art with Stripe.
+            </h2>
+            <p className="text-sm text-muted mt-2 m-0 max-w-xl">
+              Journals and analysis stay free. Sign in on the app, then Stripe Checkout opens for Plus,
+              Pro, or a credit pack.
+            </p>
+          </div>
+          <Link
+            to="/pricing"
+            className="text-sm text-aqua-light hover:text-aqua no-underline hidden sm:inline"
+          >
+            Full pricing →
+          </Link>
+        </div>
+        <div className="grid md:grid-cols-3 gap-3.5 mb-6">
+          {PRICING.map((tier) => (
+            <a
+              key={tier.id}
+              href={appUrlWithRef(tier.href)}
+              className={`glass glass-lift rounded-2xl p-5 no-underline ${
+                tier.featured ? 'border-aqua/30' : ''
+              }`}
+            >
+              <div className="text-[0.625rem] uppercase tracking-[0.18em] text-muted mb-2">
+                {tier.name}
+              </div>
+              <div className="font-dream text-3xl text-ink">
+                {tier.price}
+                <span className="text-sm text-muted font-ui ml-1">{tier.period}</span>
+              </div>
+              <p className="text-sm text-body m-0 mt-3 leading-relaxed">{tier.highlights[2]}</p>
+              <p className="text-sm text-aqua-light mt-4 mb-0">{tier.cta} →</p>
+            </a>
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {CREDIT_PACKS.map((pack) => (
+            <a key={pack.id} href={appUrlWithRef(pack.href)} className="btn-secondary !text-sm !py-2">
+              {pack.credits} tokens · {pack.price}
+            </a>
+          ))}
         </div>
       </section>
 

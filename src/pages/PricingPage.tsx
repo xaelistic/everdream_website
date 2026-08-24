@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Check } from 'lucide-react';
-import { PRICING, REFERRAL_INCENTIVES } from '@/data/content';
+import { Check, Sparkles } from 'lucide-react';
+import { CREDIT_PACKS, PRICING, REFERRAL_INCENTIVES } from '@/data/content';
 import { appUrlWithRef } from '@/lib/config';
 
 export function PricingPage() {
@@ -8,11 +8,11 @@ export function PricingPage() {
     <div className="page-wrap py-16 md:py-20">
       <p className="section-label mb-3">Pricing</p>
       <h1 className="font-dream text-4xl md:text-5xl m-0 mb-4 font-medium text-ink">
-        Free to start. Plus when you want more art.
+        Capture is free. Credits paint the night.
       </h1>
       <p className="text-body max-w-2xl m-0 mb-14 leading-relaxed">
-        Local-first journaling stays free. Upgrade for unlimited images, wearables sync, and deeper
-        analytics. Referrals earn tokens and free months for both of you.
+        Journals, analysis and sleep tracking stay free. Stripe unlocks Plus or Pro, or a credit pack,
+        after you sign in. Monthly credits reset; packs you buy stay until you use them.
       </p>
 
       <div className="grid md:grid-cols-3 gap-4 mb-20">
@@ -44,7 +44,7 @@ export function PricingPage() {
               ))}
             </ul>
             <a
-              href={appUrlWithRef()}
+              href={appUrlWithRef(tier.href)}
               className={tier.featured ? 'btn-primary !w-full' : 'btn-secondary !w-full'}
             >
               {tier.cta}
@@ -52,6 +52,31 @@ export function PricingPage() {
           </div>
         ))}
       </div>
+
+      <section className="mb-20">
+        <p className="section-label mb-2">Tokens</p>
+        <h2 className="font-dream text-3xl m-0 mb-3 text-ink font-medium">Buy more credits</h2>
+        <p className="text-body text-sm m-0 mb-8 max-w-xl leading-relaxed">
+          One credit paints one image. Storyboards use one credit per scene. Stripe checkout opens in
+          the app after you sign in.
+        </p>
+        <div className="grid sm:grid-cols-3 gap-4">
+          {CREDIT_PACKS.map((pack) => (
+            <article
+              key={pack.id}
+              className="rounded-[1.5rem] border border-[rgba(168,237,220,0.1)] bg-[rgba(26,26,46,0.7)] p-6 flex flex-col"
+            >
+              <Sparkles className="h-4 w-4 text-aqua mb-3" />
+              <h3 className="font-dream text-xl m-0 text-ink">{pack.credits} credits</h3>
+              <p className="font-dream text-2xl text-ink mt-2 mb-1">{pack.price}</p>
+              <p className="text-sm text-muted m-0 mb-6 flex-1">{pack.blurb}</p>
+              <a href={appUrlWithRef(pack.href)} className="btn-secondary !w-full">
+                Buy with Stripe
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section id="referrals" className="scroll-mt-24 glass rounded-3xl p-8 md:p-10 mb-8">
         <p className="section-label mb-2">Referrals</p>

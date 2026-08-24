@@ -16,6 +16,7 @@ import { ReferralPage } from '@/pages/ReferralPage';
 import { DiscordPage } from '@/pages/DiscordPage';
 import { PrivacyPage, TermsPage } from '@/pages/LegalPages';
 import { NotFoundPage } from '@/pages/NotFoundPage';
+import { APP_URL } from '@/lib/config';
 
 export default function App() {
   return (
@@ -49,8 +50,7 @@ export default function App() {
 }
 
 function AppRedirect() {
-  // Optional authenticated web surface: bounce to PWA
-  window.location.replace(import.meta.env.VITE_APP_URL || 'https://app.everdream.n1g3.com');
+  window.location.replace(APP_URL);
   return (
     <div className="page-wrap py-20 text-center text-body">
       Opening the app…

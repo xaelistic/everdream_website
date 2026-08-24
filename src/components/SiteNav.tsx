@@ -43,6 +43,12 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-2.5">
+          <Link
+            to="/pricing"
+            className="hidden md:inline text-[13px] text-muted hover:text-body no-underline"
+          >
+            Buy tokens
+          </Link>
           <a
             href={appUrlWithRef()}
             className="btn-primary hidden sm:inline-flex !py-2.5 !px-4 !text-[13px] !rounded-2xl"
@@ -77,6 +83,13 @@ export function SiteNav() {
                 {l.label}
               </NavLink>
             ))}
+            <Link
+              to="/pricing"
+              className="rounded-xl px-3 py-3 text-sm text-body"
+              onClick={() => setOpen(false)}
+            >
+              Buy tokens
+            </Link>
             <a
               href={appUrlWithRef()}
               className="btn-primary mt-3 !justify-center !rounded-2xl"
