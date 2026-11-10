@@ -3,6 +3,8 @@ export const APP_URL =
   import.meta.env.VITE_APP_URL || 'https://everdream.n1g3.com';
 export const DISCORD_URL =
   import.meta.env.VITE_DISCORD_URL || 'https://discord.gg/everdream';
+export const SIGNUP_URL =
+  import.meta.env.VITE_SIGNUP_URL || 'https://supabase.n1g3.com/functions/v1/website-signup';
 export const SITE_NAME = 'EverDream';
 export const TAGLINE = 'Capture dreams. Understand sleep. Share wonder.';
 

@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles, PenLine, Watch, Share2, Trophy } from 'lucide-rea
 import { CREDIT_PACKS, FEATURES, LEADERBOARDS, PRICING, SAMPLE_GALLERY } from '@/data/content';
 import { GalleryCard } from '@/components/GalleryCard';
 import { DownloadBand } from '@/components/DownloadBand';
+import { SignupForm } from '@/components/SignupForm';
 import { AppPhoneMock } from '@/components/AppPhoneMock';
 import { appUrlWithRef, TAGLINE } from '@/lib/config';
 
@@ -309,6 +310,10 @@ export function HomePage() {
             </a>
           ))}
         </div>
+      </section>
+
+      <section className="page-wrap pb-10">
+        <SignupForm page="/" />
       </section>
 
       <section className="page-wrap pb-24 md:pb-28">

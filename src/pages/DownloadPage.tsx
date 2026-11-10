@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Globe, Smartphone, QrCode } from 'lucide-react';
 import { appUrlWithRef, APP_URL, getReferralCode } from '@/lib/config';
+import { SignupForm } from '@/components/SignupForm';
 
 function detectPlatform(): 'ios' | 'android' | 'desktop' {
   if (typeof navigator === 'undefined') return 'desktop';
@@ -38,6 +39,10 @@ export function DownloadPage() {
       <p className="text-muted text-sm m-0 mb-12">
         Native store badges go live when builds ship. Today the PWA / web app is the primary path.
       </p>
+
+      <div className="mb-12">
+        <SignupForm page="/download" />
+      </div>
 
       <div className="space-y-4 mb-12">
         <a
