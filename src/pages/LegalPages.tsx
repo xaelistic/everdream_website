@@ -12,9 +12,12 @@ export function PrivacyPage() {
         Account identifiers when you sign up; dream content you create; optional wearable-derived
         sleep metrics you connect; usage analytics (e.g. PostHog) when enabled. Referral codes
         stored in your browser are used only to attribute invites. The beta form stores your email
-        so we can send a welcome and three weekly notes, then later testing invites. Each letter
-        has a link to leave the list. That address is kept with the app database and, when it
-        matches an account, attached to that profile.
+        so we can send a welcome and up to three weekly notes, then later testing invites. Once
+        that address is attached to an app profile, the dream note is not sent if a dream is
+        already in the journal, and the picture note is not sent if a dream already has an image.
+        Turning notifications off in the app skips those two notes. The welcome and the last note
+        still send until you use the leave link on a letter. The address is kept with the app
+        database and attached to a matching profile.
       </p>
       <h2>What we do not do</h2>
       <p>

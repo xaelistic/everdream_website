@@ -9,8 +9,8 @@ export type NewsletterLetter = {
   preheader: string;
   headline: string;
   paragraphs: string[];
-  cta: { label: string; to: NewsletterCta };
-  quiet?: { label: string; to: NewsletterCta };
+  cta: { label: string; to: NewsletterCta; hash?: string };
+  quiet?: { label: string; to: NewsletterCta; hash?: string };
 };
 
 /** Beta CRM. Welcome on join, then one email every 7 days. */
@@ -28,7 +28,7 @@ export const BETA_LETTERS: NewsletterLetter[] = [
       'Today is the welcome. In seven days, a prompt to write one dream. Seven days after that, one picture. Seven days after that, a request for what we should keep.',
       'The app is open if you want to look tonight. You do not have to wait for the next letter.',
     ],
-    cta: { label: 'Open EverDream', to: 'app' },
+    cta: { label: 'Open EverDream', to: 'app', hash: '/#/?nurture=welcome' },
     quiet: { label: 'Read the four notes', to: 'letters' },
   },
   {
@@ -43,7 +43,7 @@ export const BETA_LETTERS: NewsletterLetter[] = [
       'Open EverDream when you wake and write the dream while it is still warm. A few sentences count. If typing feels like too much, leave a voice note.',
       'Leave the pictures for next week. This note is only about whether capture is calm enough to use half-asleep.',
     ],
-    cta: { label: 'Open the journal', to: 'app' },
+    cta: { label: 'Open the journal', to: 'app', hash: '/#/record?nurture=capture' },
   },
   {
     key: 'picture',
@@ -57,7 +57,7 @@ export const BETA_LETTERS: NewsletterLetter[] = [
       'If a dream is in the journal, make a single image from it. A new account includes 14 starter images. Spend one. The question is whether the picture feels like your dream.',
       'The journal itself does not cost a credit. Images do.',
     ],
-    cta: { label: 'Make one image', to: 'app' },
+    cta: { label: 'Make one image', to: 'app', hash: '/#/journal?nurture=picture' },
   },
   {
     key: 'circle',
@@ -72,6 +72,6 @@ export const BETA_LETTERS: NewsletterLetter[] = [
       'If you used the app, reply with one thing that helped and one thing that got in the way. If you would rather talk in a room, Discord is where the beta conversations sit.',
     ],
     cta: { label: 'Join Discord', to: 'discord' },
-    quiet: { label: 'Open the app', to: 'app' },
+    quiet: { label: 'Open the app', to: 'app', hash: '/#/?nurture=circle' },
   },
 ];

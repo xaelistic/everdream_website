@@ -1,15 +1,16 @@
 import { APP_URL, DISCORD_URL } from '@/lib/config';
 import type { NewsletterCta, NewsletterLetter as Letter } from '@/data/newsletter';
 
-function hrefFor(to: NewsletterCta): string {
-  if (to === 'app') return APP_URL;
-  if (to === 'discord') return DISCORD_URL;
-  return '/beta/letters';
+function hrefFor(link: { to: NewsletterCta; hash?: string }): string {
+  if (link.to === 'discord') return DISCORD_URL;
+  if (link.to === 'letters') return '/beta/letters';
+  const hash = link.hash || '/#/';
+  return `${APP_URL.replace(/\/$/, '')}${hash}`;
 }
 
 export function NewsletterLetterCard({ letter }: { letter: Letter }) {
-  const ctaHref = hrefFor(letter.cta.to);
-  const quietHref = letter.quiet ? hrefFor(letter.quiet.to) : '';
+  const ctaHref = hrefFor(letter.cta);
+  const quietHref = letter.quiet ? hrefFor(letter.quiet) : '';
   const ctaExternal = letter.cta.to !== 'letters';
   const quietExternal = letter.quiet ? letter.quiet.to !== 'letters' : false;
 
