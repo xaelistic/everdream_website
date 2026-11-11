@@ -11,7 +11,9 @@ export function PrivacyPage() {
       <p>
         Account identifiers when you sign up; dream content you create; optional wearable-derived
         sleep metrics you connect; usage analytics (e.g. PostHog) when enabled. Referral codes
-        stored in your browser are used only to attribute invites.
+        stored in your browser are used only to attribute invites. The beta form stores your email
+        so we can send testing invites and product notes. That address is kept with the app
+        database and, when it matches an account, attached to that profile.
       </p>
       <h2>What we do not do</h2>
       <p>
@@ -20,7 +22,7 @@ export function PrivacyPage() {
       </p>
       <h2>Contact</h2>
       <p>For privacy requests, contact the operators via Discord or the channels listed on About.</p>
-      <p className="text-xs text-muted">Last updated: 2026-07-28. This is a product summary, not legal advice.</p>
+      <p className="text-xs text-muted">Last updated: 2026-11-11. This is a product summary, not legal advice.</p>
     </LegalShell>
   );
 }

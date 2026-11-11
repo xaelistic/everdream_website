@@ -11,6 +11,7 @@ const LINKS = [
   { to: '/pricing', label: 'Pricing' },
   { to: '/learn', label: 'Learn' },
   { to: '/roadmap', label: 'Roadmap' },
+  { to: '/beta', label: 'Beta' },
 ];
 
 export function SiteNav() {

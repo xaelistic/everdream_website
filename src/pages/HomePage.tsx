@@ -83,6 +83,9 @@ export function HomePage() {
                 Get the app
                 <ArrowRight className="h-4 w-4" />
               </a>
+              <Link to="/beta" className="btn-secondary">
+                Join the beta
+              </Link>
               <Link to="/gallery" className="btn-secondary">
                 Explore gallery
               </Link>

@@ -14,6 +14,7 @@ import { LearnPage } from '@/pages/LearnPage';
 import { LearnArticlePage } from '@/pages/LearnArticlePage';
 import { ReferralPage } from '@/pages/ReferralPage';
 import { DiscordPage } from '@/pages/DiscordPage';
+import { BetaPage } from '@/pages/BetaPage';
 import { PrivacyPage, TermsPage } from '@/pages/LegalPages';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { APP_URL } from '@/lib/config';
@@ -38,6 +39,9 @@ export default function App() {
           <Route path="blog" element={<Navigate to="/learn" replace />} />
           <Route path="blog/*" element={<Navigate to="/learn" replace />} />
           <Route path="discord" element={<DiscordPage />} />
+          <Route path="beta" element={<BetaPage />} />
+          <Route path="waitlist" element={<Navigate to="/beta" replace />} />
+          <Route path="newsletter" element={<Navigate to="/beta" replace />} />
           <Route path="privacy" element={<PrivacyPage />} />
           <Route path="terms" element={<TermsPage />} />
           <Route path="r/:code" element={<ReferralPage />} />

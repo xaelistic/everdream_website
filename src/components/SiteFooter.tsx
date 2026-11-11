@@ -21,6 +21,7 @@ const COLUMNS = [
       { to: '/roadmap', label: 'Roadmap' },
       { to: '/learn', label: 'Learn' },
       { to: '/discord', label: 'Discord' },
+      { to: '/beta', label: 'Beta waitlist' },
     ],
   },
   {
