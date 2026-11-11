@@ -12,8 +12,9 @@ export function PrivacyPage() {
         Account identifiers when you sign up; dream content you create; optional wearable-derived
         sleep metrics you connect; usage analytics (e.g. PostHog) when enabled. Referral codes
         stored in your browser are used only to attribute invites. The beta form stores your email
-        so we can send testing invites and product notes. That address is kept with the app
-        database and, when it matches an account, attached to that profile.
+        so we can send a welcome and three weekly notes, then later testing invites. Each letter
+        has a link to leave the list. That address is kept with the app database and, when it
+        matches an account, attached to that profile.
       </p>
       <h2>What we do not do</h2>
       <p>

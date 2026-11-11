@@ -38,7 +38,7 @@ export function SignupForm({
       }
       setStatus('done');
       setEmail('');
-      setMessage('You’re on the beta list. We’ll write when there’s a test to join.');
+      setMessage('You’re on the beta list. A welcome, then one note a week for three weeks.');
     } catch {
       setStatus('error');
       setMessage('Could not reach signup. Try again in a moment.');

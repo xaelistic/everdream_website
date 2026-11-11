@@ -1,23 +1,13 @@
 import { useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { SignupForm } from '@/components/SignupForm';
+import { BETA_LETTERS } from '@/data/newsletter';
 import { appUrlWithRef, DISCORD_URL } from '@/lib/config';
 
-const NOTES = [
-  {
-    title: 'Beta invites',
-    body: 'We email this list when a testing round opens, and when there is something new to try.',
-  },
-  {
-    title: 'The app is open',
-    body: 'You can journal tonight. The list is for people who want the notes, not a locked door.',
-  },
-  {
-    title: 'Same address, one profile',
-    body: 'If you later create an app account with this email, the waitlist row stays attached to it.',
-  },
-];
-
 export function BetaPage() {
+  const [params] = useSearchParams();
+  const left = params.get('left') === '1';
+
   useEffect(() => {
     const previous = document.title;
     document.title = 'Join the EverDream beta';
@@ -33,20 +23,32 @@ export function BetaPage() {
         Join the beta list
       </h1>
       <p className="text-body m-0 mb-10 leading-relaxed max-w-xl">
-        A short newsletter for beta testing. Invites, what to try, and the occasional product note.
-        No drip sequence, and we do not sell the address.
+        Four notes in the same quiet voice as the site. A welcome when you join, then one email
+        every seven days: write a dream, make one picture, tell us what to keep. We do not sell
+        the address.
       </p>
+      {left ? (
+        <p className="text-sm text-aqua-light m-0 mb-6">You’re off the list. The remaining notes will not send.</p>
+      ) : null}
 
       <SignupForm page="/beta" showHeading={false} />
 
-      <div className="grid gap-3.5 mt-10">
-        {NOTES.map((note) => (
-          <section key={note.title} className="glass rounded-2xl p-5">
-            <h2 className="font-dream text-xl text-ink m-0 mb-2 font-medium">{note.title}</h2>
-            <p className="text-sm text-body m-0 leading-relaxed">{note.body}</p>
+      <div className="grid sm:grid-cols-2 gap-3.5 mt-10">
+        {BETA_LETTERS.map((letter) => (
+          <section key={letter.key} className="glass rounded-2xl p-5">
+            <p className="section-label section-label-accent m-0 mb-2">
+              {letter.funnel} · day {letter.day}
+            </p>
+            <h2 className="font-dream text-xl text-ink m-0 mb-2 font-medium">{letter.headline}</h2>
+            <p className="text-sm text-body m-0 leading-relaxed">{letter.preheader}</p>
           </section>
         ))}
       </div>
+      <p className="mt-4 mb-0">
+        <Link to="/beta/letters" className="text-sm text-aqua-light no-underline hover:text-aqua">
+          Read the four notes
+        </Link>
+      </p>
 
       <div className="flex flex-wrap gap-3 mt-10">
         <a href={appUrlWithRef()} className="btn-primary">
